@@ -3,22 +3,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package org.example.view;
+
 import javax.swing.JOptionPane;
+import org.example.controller.Controller;
 
 /**
  *
  * @author pavel
  */
 public class FormAddTeacher extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormAddTeacher.class.getName());
+
+    private static final java.util.logging.Logger logger =
+            java.util.logging.Logger.getLogger(FormAddTeacher.class.getName());
+
+    private final Controller controller = new Controller();
 
     /**
      * Creates new form FormAddTeacher
      */
     public FormAddTeacher() {
+
         initComponents();
+
         setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**
@@ -38,6 +46,7 @@ public class FormAddTeacher extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+
         txtId = new javax.swing.JTextField();
         txtLastName = new javax.swing.JTextField();
         txtFirstName = new javax.swing.JTextField();
@@ -45,13 +54,13 @@ public class FormAddTeacher extends javax.swing.JFrame {
         txtPhone = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtSpecialization = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        txtExperience = new javax.swing.JTextField();
+
         btnSave = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Добавление преподавателя");
-        setResizable(false);
 
         jLabel1.setText("ID:");
 
@@ -75,120 +84,222 @@ public class FormAddTeacher extends javax.swing.JFrame {
         btnCancel.setText("Отмена");
         btnCancel.addActionListener(this::btnCancelActionPerformed);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        javax.swing.GroupLayout layout =
+                new javax.swing.GroupLayout(getContentPane());
+
         getContentPane().setLayout(layout);
+
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtSpecialization, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPhone, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPatronymic, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtFirstName, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtLastName, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtId, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSave, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField8))
-                .addGap(18, 18, 18)
-                .addComponent(btnCancel)
-                .addContainerGap(81, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+
+                                .addGap(30, 30, 30)
+
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+
+                                        .addComponent(jLabel1)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel8))
+
+                                .addGap(18, 18, 18)
+
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+
+                                        .addComponent(txtId)
+                                        .addComponent(txtLastName)
+                                        .addComponent(txtFirstName)
+                                        .addComponent(txtPatronymic)
+                                        .addComponent(txtPhone)
+                                        .addComponent(txtEmail)
+                                        .addComponent(txtSpecialization)
+                                        .addComponent(txtExperience,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                220,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+
+                                        .addGroup(layout.createSequentialGroup()
+
+                                                .addComponent(btnSave)
+
+                                                .addGap(18, 18, 18)
+
+                                                .addComponent(btnCancel)))
+
+                                .addContainerGap(30, Short.MAX_VALUE))
         );
+
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtPatronymic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(txtSpecialization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSave)
-                    .addComponent(btnCancel))
-                .addContainerGap(13, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+
+                                .addGap(20, 20, 20)
+
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel1)
+                                        .addComponent(txtId,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+
+                                .addGap(18, 18, 18)
+
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel2)
+                                        .addComponent(txtLastName,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+
+                                .addGap(18, 18, 18)
+
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel3)
+                                        .addComponent(txtFirstName,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+
+                                .addGap(18, 18, 18)
+
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel4)
+                                        .addComponent(txtPatronymic,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+
+                                .addGap(18, 18, 18)
+
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel5)
+                                        .addComponent(txtPhone,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+
+                                .addGap(18, 18, 18)
+
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel6)
+                                        .addComponent(txtEmail,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+
+                                .addGap(18, 18, 18)
+
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel7)
+                                        .addComponent(txtSpecialization,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+
+                                .addGap(18, 18, 18)
+
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel8)
+                                        .addComponent(txtExperience,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+
+                                .addGap(25, 25, 25)
+
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnSave)
+                                        .addComponent(btnCancel))
+
+                                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        JOptionPane.showMessageDialog(this, 
-        "Студент сохранён (временная заглушка)", 
-        "Информация", 
-        JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_btnSaveActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {
 
-    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        String id = txtId.getText();
+        String lastName = txtLastName.getText();
+        String firstName = txtFirstName.getText();
+        String phone = txtPhone.getText();
+        String email = txtEmail.getText();
+
+        String validationResult = controller.validateUserData(
+                id,
+                lastName,
+                firstName,
+                phone,
+                email
+        );
+
+        if (validationResult != null) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    validationResult,
+                    "Ошибка ввода",
+                    JOptionPane.ERROR_MESSAGE
+            );
+
+            return;
+        }
+
+        JOptionPane.showMessageDialog(
+                this,
+                "Преподаватель успешно сохранён!",
+                "Успех",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+
+        txtId.setText("");
+        txtLastName.setText("");
+        txtFirstName.setText("");
+        txtPatronymic.setText("");
+        txtPhone.setText("");
+        txtEmail.setText("");
+        txtSpecialization.setText("");
+        txtExperience.setText("");
+    }
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {
+
         this.dispose();
-    }//GEN-LAST:event_btnCancelActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    }
+
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+
+            for (javax.swing.UIManager.LookAndFeelInfo info :
+                    javax.swing.UIManager.getInstalledLookAndFeels()) {
+
                 if ("Nimbus".equals(info.getName())) {
+
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+
+        } catch (ReflectiveOperationException |
+                 javax.swing.UnsupportedLookAndFeelException ex) {
+
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FormAddTeacher().setVisible(true));
+        java.awt.EventQueue.invokeLater(() ->
+                new FormAddTeacher().setVisible(true));
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSave;
+
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -197,13 +308,14 @@ public class FormAddTeacher extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField8;
+
     private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtExperience;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtPatronymic;
     private javax.swing.JTextField txtPhone;
     private javax.swing.JTextField txtSpecialization;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration
 }
