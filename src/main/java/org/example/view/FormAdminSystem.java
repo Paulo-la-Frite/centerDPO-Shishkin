@@ -9,6 +9,7 @@ public class FormAdminSystem extends JFrame {
     
     public FormAdminSystem() {
         initComponents();
+        addEventHandlers();
         setLocationRelativeTo(null);
     }
     
@@ -45,6 +46,9 @@ public class FormAdminSystem extends JFrame {
         panel.add(btnLogout, gbc);
         
         add(panel);
+
+        setSize(400, 250);
+
         pack();
     }
     
