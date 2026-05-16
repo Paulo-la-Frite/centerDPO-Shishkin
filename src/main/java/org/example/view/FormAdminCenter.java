@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package org.example.view;
+
 import org.example.view.FormAddStudent;
 import org.example.view.FormAddTeacher;
 import org.example.view.FormAddProgram;
@@ -13,15 +14,18 @@ import org.example.view.FormLogin;
  * @author pavel
  */
 public class FormAdminCenter extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormAdminCenter.class.getName());
+
+    private static final java.util.logging.Logger logger =
+            java.util.logging.Logger.getLogger(FormAdminCenter.class.getName());
 
     /**
      * Creates new form FormAdminCenter
      */
     public FormAdminCenter() {
         initComponents();
+
         setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     /**
@@ -33,16 +37,22 @@ public class FormAdminCenter extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTitle = new javax.swing.JLabel();
+
         btnAddStudent = new javax.swing.JButton();
         btnAddTeacher = new javax.swing.JButton();
         btnAddProgram = new javax.swing.JButton();
+
         btnViewStudents = new javax.swing.JButton();
         btnViewTeachers = new javax.swing.JButton();
+
         btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Администратор центра");
-        setResizable(false);
+
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18));
+        lblTitle.setText("Панель администратора центра");
 
         btnAddStudent.setText("Добавить студента");
         btnAddStudent.addActionListener(this::btnAddStudentActionPerformed);
@@ -50,104 +60,175 @@ public class FormAdminCenter extends javax.swing.JFrame {
         btnAddTeacher.setText("Добавить преподавателя");
         btnAddTeacher.addActionListener(this::btnAddTeacherActionPerformed);
 
-        btnAddProgram.setText("\tДобавить программу");
+        btnAddProgram.setText("Добавить программу");
         btnAddProgram.addActionListener(this::btnAddProgramActionPerformed);
 
-        btnViewStudents.setText("\tПоказать студентов");
+        btnViewStudents.setText("Показать студентов");
 
         btnViewTeachers.setText("Показать преподавателей");
 
-        btnLogout.setText("\tВыйти");
+        btnLogout.setText("Выйти");
         btnLogout.addActionListener(this::btnLogoutActionPerformed);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        javax.swing.GroupLayout layout =
+                new javax.swing.GroupLayout(getContentPane());
+
         getContentPane().setLayout(layout);
+
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnLogout)
-                    .addComponent(btnViewTeachers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnViewStudents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAddProgram, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAddTeacher, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAddStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(186, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+
+                                        .addComponent(lblTitle)
+
+                                        .addComponent(btnAddStudent,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                250,
+                                                Short.MAX_VALUE)
+
+                                        .addComponent(btnAddTeacher,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                Short.MAX_VALUE)
+
+                                        .addComponent(btnAddProgram,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                Short.MAX_VALUE)
+
+                                        .addComponent(btnViewStudents,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                Short.MAX_VALUE)
+
+                                        .addComponent(btnViewTeachers,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                Short.MAX_VALUE)
+
+                                        .addComponent(btnLogout,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                100,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+
+                                .addContainerGap(35, Short.MAX_VALUE))
         );
+
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(btnAddStudent)
-                .addGap(18, 18, 18)
-                .addComponent(btnAddTeacher)
-                .addGap(18, 18, 18)
-                .addComponent(btnAddProgram)
-                .addGap(18, 18, 18)
-                .addComponent(btnViewStudents)
-                .addGap(18, 18, 18)
-                .addComponent(btnViewTeachers)
-                .addGap(18, 18, 18)
-                .addComponent(btnLogout)
-                .addContainerGap(50, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+
+                                .addGap(20, 20, 20)
+
+                                .addComponent(lblTitle)
+
+                                .addGap(25, 25, 25)
+
+                                .addComponent(btnAddStudent)
+
+                                .addGap(18, 18, 18)
+
+                                .addComponent(btnAddTeacher)
+
+                                .addGap(18, 18, 18)
+
+                                .addComponent(btnAddProgram)
+
+                                .addGap(18, 18, 18)
+
+                                .addComponent(btnViewStudents)
+
+                                .addGap(18, 18, 18)
+
+                                .addComponent(btnViewTeachers)
+
+                                .addGap(25, 25, 25)
+
+                                .addComponent(btnLogout)
+
+                                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStudentActionPerformed
+
         FormAddStudent addStudentForm = new FormAddStudent();
         addStudentForm.setVisible(true);
+
     }//GEN-LAST:event_btnAddStudentActionPerformed
 
     private void btnAddTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTeacherActionPerformed
+
         FormAddTeacher addTeacherForm = new FormAddTeacher();
         addTeacherForm.setVisible(true);
+
     }//GEN-LAST:event_btnAddTeacherActionPerformed
 
     private void btnAddProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProgramActionPerformed
+
         FormAddProgram addProgramForm = new FormAddProgram();
         addProgramForm.setVisible(true);
+
     }//GEN-LAST:event_btnAddProgramActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        this.dispose(); // закрыть форму админа
+
+        this.dispose();
+
         FormLogin loginForm = new FormLogin();
         loginForm.setVisible(true);
+
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+
+            for (javax.swing.UIManager.LookAndFeelInfo info :
+                    javax.swing.UIManager.getInstalledLookAndFeels()) {
+
                 if ("Nimbus".equals(info.getName())) {
+
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+
+        } catch (ReflectiveOperationException |
+                 javax.swing.UnsupportedLookAndFeelException ex) {
+
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
+
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FormAdminCenter().setVisible(true));
+        java.awt.EventQueue.invokeLater(() ->
+                new FormAdminCenter().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+
     private javax.swing.JButton btnAddProgram;
     private javax.swing.JButton btnAddStudent;
     private javax.swing.JButton btnAddTeacher;
+
     private javax.swing.JButton btnLogout;
+
     private javax.swing.JButton btnViewStudents;
     private javax.swing.JButton btnViewTeachers;
+
+    private javax.swing.JLabel lblTitle;
+
     // End of variables declaration//GEN-END:variables
 }
