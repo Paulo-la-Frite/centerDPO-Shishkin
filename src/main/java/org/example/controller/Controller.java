@@ -9,7 +9,10 @@ public class Controller {
     }
     
     // Проверка логина и пароля, возвращает роль
-    // 0 - нет доступа, 1 - администратор центра, 2 - гость
+    // 0 - нет доступа
+    // 1 - администратор центра
+    // 2 - гость
+    // 3 - администратор системы
     public int getAccept(String login, String password) {
         // Временная заглушка для тестирования GUI
         // Позже здесь будет подключение к БД
@@ -25,6 +28,9 @@ public class Controller {
         
         if (login.equals("guest") && password.equals("guest")) {
             return 2; // гость
+        }
+        if (login.equals("sysadmin") && password.equals("admin")) {
+            return 3; // администратор системы
         }
         
         return 0; // доступ запрещён
