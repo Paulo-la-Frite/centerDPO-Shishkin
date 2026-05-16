@@ -3,25 +3,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package org.example.view;
+
 import javax.swing.JOptionPane;
 import org.example.controller.Controller;
 import org.example.view.FormAdminCenter;
 import org.example.view.FormGuest;
+import org.example.view.FormAdminSystem;
 
 /**
  *
  * @author pavel
  */
 public class FormLogin extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormLogin.class.getName());
+
+    private static final java.util.logging.Logger logger =
+            java.util.logging.Logger.getLogger(FormLogin.class.getName());
 
     /**
      * Creates new form FormLogin
      */
     public FormLogin() {
         initComponents();
+
         setLocationRelativeTo(null);
+        setTitle("Авторизация - Центр ДПО");
+        setResizable(false);
     }
 
     /**
@@ -41,14 +47,12 @@ public class FormLogin extends javax.swing.JFrame {
         btnCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Авторизация - Центр ДПО");
-        setResizable(false);
 
         jLabel1.setText("Логин:");
 
         jLabel2.setText("Пароль:");
 
-        txtPassword.setText("jPasswordField1");
+        txtPassword.setText("");
 
         btnLogin.setText("Войти");
         btnLogin.addActionListener(this::btnLoginActionPerformed);
@@ -58,110 +62,147 @@ public class FormLogin extends javax.swing.JFrame {
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
+
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnLogin)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCancel)))
-                .addContainerGap(219, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel1)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jLabel2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(btnLogin)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(btnCancel)))
+                                .addContainerGap(40, Short.MAX_VALUE))
         );
+
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLogin)
-                    .addComponent(btnCancel))
-                .addContainerGap(281, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel1)
+                                        .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel2)
+                                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnLogin)
+                                        .addComponent(btnCancel))
+                                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+
         String login = txtLogin.getText();
         String password = new String(txtPassword.getPassword());
-    
-    Controller controller = new Controller();
-    
-    // Проверка на пустые поля
-    if (controller.isEmptyAccept(login, password)) {
-        JOptionPane.showMessageDialog(this, 
-            "Заполните все поля!", 
-            "Ошибка ввода", 
-            JOptionPane.ERROR_MESSAGE);
-        return;
-    }
-    
-    // Проверка логина и пароля
-    int role = controller.getAccept(login, password);
-    
-    if (role == 1) {
-        // Администратор центра
-        FormAdminCenter adminForm = new FormAdminCenter();
-        adminForm.setVisible(true);
-        this.dispose();
-    } else if (role == 2) {
-        // Гость
-        FormGuest guestForm = new FormGuest();
-        guestForm.setVisible(true);
-        this.dispose();
-    } else {
-        // Ошибка авторизации
-        JOptionPane.showMessageDialog(this, 
-            "Неверный логин или пароль!", 
-            "Ошибка авторизации", 
-            JOptionPane.ERROR_MESSAGE);
-        txtLogin.setText("");
-        txtPassword.setText("");
-    }
+
+        Controller controller = new Controller();
+
+        // Проверка пустых полей
+        if (controller.isEmptyAccept(login, password)) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Заполните все поля!",
+                    "Ошибка ввода",
+                    JOptionPane.ERROR_MESSAGE
+            );
+
+            return;
+        }
+
+        // Проверка логина и пароля
+        int role = controller.getAccept(login, password);
+
+        if (role == 1) {
+
+            // Администратор центра
+            FormAdminCenter adminForm = new FormAdminCenter();
+            adminForm.setVisible(true);
+            this.dispose();
+
+        } else if (role == 2) {
+
+            // Гость
+            FormGuest guestForm = new FormGuest();
+            guestForm.setVisible(true);
+            this.dispose();
+
+        } else if (role == 3) {
+
+            // Администратор системы
+            FormAdminSystem systemForm = new FormAdminSystem();
+            systemForm.setVisible(true);
+            this.dispose();
+
+        } else {
+
+            // Ошибка авторизации
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Неверный логин или пароль!",
+                    "Ошибка авторизации",
+                    JOptionPane.ERROR_MESSAGE
+            );
+
+            txtLogin.setText("");
+            txtPassword.setText("");
+        }
+
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+
         System.exit(0);
+
     }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+
+            for (javax.swing.UIManager.LookAndFeelInfo info :
+                    javax.swing.UIManager.getInstalledLookAndFeels()) {
+
                 if ("Nimbus".equals(info.getName())) {
+
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+
+        } catch (ReflectiveOperationException |
+                 javax.swing.UnsupportedLookAndFeelException ex) {
+
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
+
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FormLogin().setVisible(true));
+        java.awt.EventQueue.invokeLater(() ->
+                new FormLogin().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
